@@ -4,6 +4,7 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.effectivelife.cokcoksupport.api.ApiInfo;
 import com.effectivelife.cokcoksupport.api.ApiResult;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -17,10 +18,14 @@ public abstract class GsonRequest<T> extends BaseRequest<T> {
     private final Gson gson = new Gson();
     private final Response.Listener<T> listener;
 
-    public GsonRequest(int method, String url, Class<? extends ApiResult> paramClass, Response.Listener<T> listener, Response.ErrorListener errListener) {
+    private GsonRequest(int method, String url, Class<? extends ApiResult> paramClass, Response.Listener<T> listener, Response.ErrorListener errListener) {
         super(method, url, errListener);
         this.mClass = paramClass;
         this.listener = listener;
+    }
+
+    public GsonRequest(ApiInfo apiInfo, Response.Listener<T> listener, Response.ErrorListener errListener) {
+        this(apiInfo.method, apiInfo.host+apiInfo.path, apiInfo.bindingClass, listener, errListener);
     }
 
     @Override

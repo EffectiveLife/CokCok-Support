@@ -11,7 +11,7 @@ import com.effectivelife.cokcoksupport.api.ApiResult;
 public class SimpleGsonRequest<T extends ApiResult> extends GsonRequest<T> {
 
     public SimpleGsonRequest(ApiInfo paramApiInfo, Response.Listener<T> listener, Response.ErrorListener errListener) {
-        super(paramApiInfo.method, paramApiInfo.host+paramApiInfo.path, paramApiInfo.bindingClass, listener, errListener);
+        super(paramApiInfo, listener, errListener);
         setShouldCache(false);
         setRetryPolicy(new DefaultRetryPolicy(paramApiInfo.connectionTimeout, paramApiInfo.retryCount, 1.0F));
         addParam("srv_type", "SMART114");

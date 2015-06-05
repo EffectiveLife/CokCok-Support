@@ -44,9 +44,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.mcxiaoke.volley:library:1.0.+'
-    provided 'com.google.code.gson:gson:2.2.4'
-    provided ('org.simpleframework:simple-xml:2.7.+') {
+    compile 'com.mcxiaoke.volley:library:1.0.+'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile ('org.simpleframework:simple-xml:2.7.+') {
         exclude module: 'stax'
         exclude module: 'stax-api'
         exclude module: 'xpp3'
