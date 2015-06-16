@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/EffectiveLife/CokCok-Support'
     gitUrl = 'https://github.com/EffectiveLife/CokCok-Support.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'effectivelife'
     developerName = 'JayD'
@@ -32,7 +32,7 @@ android {
         minSdkVersion 9
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0.1"
+        versionName libraryVersion
     }
     buildTypes {
         release {
@@ -51,6 +51,7 @@ dependencies {
         exclude module: 'stax-api'
         exclude module: 'xpp3'
     }
+    compile 'com.navercorp.volleyextensions:volley-caches:2.0.+'
 }
 
 apply from: '../install.gradle'
